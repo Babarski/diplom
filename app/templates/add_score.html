@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div style="text-aligh:center">
+            <label>If you don`t khow your score, you can
+            <a href="{{ url_for('pass_test') }}">pass our test</a></label>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-lg-6 col-centered">
+            <form method=POST action="{{ url_for('add_score') }}">
+                <table class="table">
+                    <thead>
+                            <div class="form-group">
+                                <label>Scores</label>
+                            </div>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                <label>Coordinator</label>
+                                <input type="number" class="form-control" name="co">
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="form-group">
+                                 <label>Team Worker</label>
+                                 <input type="number" class="form-control" name="tw" >
+                                 </div>
+                            </td>
+                            <td>
+                                 <div class="form-group">
+                                     <label>Resource Investigator</label>
+                                    <input type="number" class="form-control" name="ri" >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                <label>Implementer</label>
+                                <input type="number" class="form-control" name="imp">
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="form-group">
+                                    <label>Plant</label>
+                                    <input type="number" class="form-control" name="pl" >
+                                 </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <label>Monitor/Evaluator</label>
+                                    <input type="number" class="form-control" name="me" >
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="form-group">
+                                 <label>Compliter/Finisher</label>
+                                <input type="number" class="form-control" name="cf" >
+                                 </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                <label>Shaper</label>
+                                <input type="number" class="form-control" name="sh" >
+                                </div>
+                            </td>
+                            <td>
+                                 <div class="form-group">
+                                <label>Specialist</label>
+                                 <input type="number" class="form-control" name="sp" >
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+
+                <button type="submit" class="btn btn-primary btn-block">Add Score</button>
+            </form>
+             <br>
+        </div>
+    </div>
+</div>
+{% if error %}
+<div style="text-align: center;"> {{ error }} </div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="text-align: center">Choose team members</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+        <form method=POST action="{{ url_for('check_team') }}">
+    <!--<h3>Team member {{i}}</h3>-->
+            <table class = "table">
+                  <tbody>
+                    <tr>
+                        {% for i in range(0, 3)%}
+                         <td> Team member #{{i+1}}<select name = "memberId{{i}}" style="margin-left: 2em">
+                            {% for user in users%}
+                         <option value="{{ user.idUser }}">{{ user.name + " "+ user.surname}}</option>
+                            {% endfor %}
+                         </select> </td>
+                        {% endfor %}
+                    </tr>
+                  <tr>
+                        {% for i in range(3, 6)%}
+                         <td> Team member #{{i+1}}<select name = "memberId{{i}}" style="margin-left: 2em">
+                            {% for user in users%}
+                         <option value="{{ user.idUser }}">{{ user.name + " "+ user.surname}}</option>
+                            {% endfor %}
+                         </select> </td>
+                        {% endfor %}
+                    </tr>
+                  <tr>
+                        {% for i in range(6, 9)%}
+                         <td> Team member #{{i+1}}<select name = "memberId{{i}}" style="margin-left: 2em">
+                            {% for user in users%}
+                         <option value="{{ user.idUser }}">{{ user.name + " "+ user.surname}}</option>
+                            {% endfor %}
+                         </select> </td>
+                        {% endfor %}
+                    </tr>
+                  </tbody>
+            </table>
+
+
+        <input type="submit" value = "Check team" class="btn btn-primary btn-block"/>
+        </form>
+{% if error %}
+<div style="text-align: center;"> {{ error }} </div>
+{% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

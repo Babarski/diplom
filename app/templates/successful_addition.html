@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <label>User was successfully added.
+        <a href="{{ url_for('register') }}" >Add new user</a> or
+        <a href="{{ url_for('main_page') }}" >go to main menu</a>
+        </label>
+    </div>
+</div>
+{% endblock %}

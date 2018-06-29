@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h1 style="text-align: center">Result of calculations</h1>
+
+            {% if result == "Good" %}
+            Score = {{ teamScore }}
+            {% for member in Team%}
+            <div>{{member[1]}} - {{member[0]}}</div>
+            {% endfor %}
+            {% endif %}
+
+            <label>Those employees has/have bad roles combinations:</label>
+            {% for employee in showEmploeesWithBadRolesCombinations %}
+            <div> {{ employee[0] }} - {{ employee[1] }}</div>
+            {% endfor %}
+
+            <label>Those employees can not be at one team:</label>
+            {% for employees in showBadRoleCombinationsInTwoEmployess %}
+            <div> {{ employees[0] }} - {{ employees[1] }}</div>
+            {% endfor %}
+
+            <button class="btn btn-primary btn-block">Save team</button>
+        </div>
+    </div>
+</div>
+{% if error %}
+<div style="text-align: center;"> {{ error }} </div>
+{% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
